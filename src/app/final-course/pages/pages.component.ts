@@ -46,7 +46,7 @@ export class PagesComponent implements OnInit {
     this.layoutService.PageContentAdded.subscribe((data)=>{
       console.log("m here!!")
       // this.page=  this.pageContent.push(data);
-      if(data){
+      if(JSON.parse(localStorage.getItem('course'))){
         console.log("this is the data that comes in final-course.ts",data);
         console.log(typeof data);
         this.course = typeof(data)==='string'? JSON.parse(data): data;

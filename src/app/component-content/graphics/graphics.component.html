@@ -47,11 +47,7 @@
                     <div class="form-group">
                             <label class="control-label col-sm-2" for="blink">Image Upload</label>
                             <div class="col-sm-10">
-                                    <span style="color:red;" *ngIf="message">{{message}}</span>
-                                    <!-- <input #file type="file" name="file" class="form-control" accept='image/*' (change)="preview(file.files)" ngModel> -->
-                                    <input type="file" id="filePicker" name='graphics_url' (change)="handleFileSelect($event)" ngModel>
-              
-                                    <!-- <img [src]="imgURL" height="200" *ngIf="imgURL"> -->
+                                <input type="file" id="myFile" size="50" name="graphics_url" (change)="uploadImage($event)" ngModel>
                             </div>
                      </div>
                   

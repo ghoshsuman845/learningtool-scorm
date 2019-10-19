@@ -10,62 +10,41 @@ import { HttpClient, HttpEventType } from '@angular/common/http';
   styleUrls: ['./graphics.component.scss']
 })
 export class GraphicsComponent implements OnInit {
+  name: any;
+  reader: FileReader;
   get graphics() :   Graphics[] {
     return this.layoutService.graphics;
   
   }
-  private base64textString:String="";
-  
-  public imagePath;
-  imgURL: any;
+ 
   public message: string;
   text1: string ;
 
 
   constructor( private layoutService: LayoutService) { }
+  uploadImage($event) {
+    
+    
+    this.reader = new FileReader();
+    this.name = $event.target.files[0].name;
+    this.reader.addEventListener("load", function () {
+        if (this.result && localStorage) {
+          console.log( typeof this.result);
+          
+            localStorage.setItem('name', JSON.stringify(this.result));
+        } else {
+            alert();
+        }
+    });
+    this.reader.readAsDataURL($event.target.files[0]);
+}
 
   ngOnInit() {
   }
-  // preview(files) {
-  //   if (files.length === 0)
-  //     return;
  
-  //   var mimeType = files[0].type;
-  //   if (mimeType.match(/image\/*/) == null) {
-  //     this.message = "Only images are supported.";
-  //     return;
-  //   }
- 
-  //   var reader = new FileReader();
     
-  //   this.imagePath = files;
-  //   console.log(this.imagePath[0].name);
-    
-  //   reader.readAsDataURL(files[0]); 
-  //   reader.onload = (_event) => { 
-  //     this.imgURL = reader.result; 
-  //     console.log(this.imgURL);
-      
-  //   }
-  // }
-  handleFileSelect(evt){
-    var files = evt.target.files;
-    var file = files[0];
-  
-  if (files && file) {
-      var reader = new FileReader();
 
-      reader.onload =this._handleReaderLoaded.bind(this);
 
-      reader.readAsBinaryString(file);
-  }
-}
-
-_handleReaderLoaded(readerEvt) {
-   var binaryString = readerEvt.target.result;
-          this.base64textString= btoa(binaryString);
-          console.log(btoa(binaryString));
-  }
   SubmitItem(graphicsCompForm:HTMLInputElement) {
     console.log(graphicsCompForm.value)
     this.layoutService.addGraphics(graphicsCompForm.value);

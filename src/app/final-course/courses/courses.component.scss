@@ -15,23 +15,32 @@
      margin-top: 8%;
     }
     .card{
-        width: 90%;
-    margin-left: 10%;
-    border-radius: 0px;
-    background-color: #B5B5B5;
+        width: 107%;
+        border-radius: 0px;
+        background-color: #212529;
+        margin-left: -3%;
     .card-title {
         margin-bottom: .75rem;
         text-align: center;
+        color: #fff;
         text-transform: uppercase;
         font-family: lato;
+        font-weight: 700;
+        font-size: 37px;
+        padding: 21px 5px;
     }
     .text-muted{
         text-align: center;
         font-family: lato;
+        margin: -39px auto;
 
     }
     .card-text{
         font-family: lato;
+        color: #fff;
+        font-size: 20px;
+        margin: 1px;
+        padding: 12px 6px;
 
 
     }
@@ -48,7 +57,9 @@
         width: 100%;
         box-shadow: 5px 5px 5px #dddbdb;
         background-color: white;
-        margin: 16px;
+       
+        margin-top: -24px;
+        margin-left: 16px;
         .card-body{
             margin-top: -17px;
         margin-left: -8px;
@@ -96,3 +107,7 @@
         }
     }
   }
+
+.course-object{
+    margin-top: 2%;
+}

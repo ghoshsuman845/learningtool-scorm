@@ -14,7 +14,7 @@ export class CoursesComponent implements OnInit {
   @Input() pageContent:string[];
   pages:string;
  
-  
+  show:boolean =false;
   course: string;
   page: string;
   page1: string;
@@ -57,37 +57,8 @@ export class CoursesComponent implements OnInit {
         console.log('this.components',this.components);//Component
        
         
-
+ 
         
-        
-        
-
-        // this.pages = typeof(data)==='string'? JSON.parse(data): data;
-        // console.log("this.pages",this.pages);
-        
-        
-        // this.articleIndex=this.pages[0];
-        // console.log("article index",this.articleIndex['_childInfo']);
-        //   this.blockIndex =this.articleIndex['_childInfo'];
-        // console.log("block index",this.blockIndex[0]);   // PAGE
-        // this.blockIndex1 =this.blockIndex[0];
-        // console.log("block index 1",this.blockIndex1['_childInfo']);
-  
-        // this.componentIndex =this.blockIndex1['_childInfo'];
-        // console.log("component index",this.componentIndex[0]); //ARTICLE
-        // this.componentIndex1 =this.componentIndex[0];
-        // console.log("component index 1",this.componentIndex1['_childInfo']);
-        // this.mainComponent = this.componentIndex1['_childInfo'];
-        // console.log("mainComponent",this.mainComponent[0]); //BLOCK
-        // this.mainComponent1 = this.mainComponent[0];
-        
-  
-  
-  
-  
-  
-        
-        // console.log(typeof this.pages);
       }else{
         console.log("No page array found");
       }     
@@ -98,10 +69,11 @@ export class CoursesComponent implements OnInit {
 
     
     console.log('click view button');
-    this.courseObject = localStorage.getItem('PageItem');
-    console.log('this.courseObject',this.courseObject);
+    this.show = !this.show;
+    // this.courseObject = localStorage.getItem('PageItem');
+    // console.log('this.courseObject',this.courseObject);
     
-    this.layoutService.PageAdded.next(this.courseObject);
+    // this.layoutService.PageAdded.next(this.courseObject);
     
       // this.router.navigate(['/final-course/course-object']);
    

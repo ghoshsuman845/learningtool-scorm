@@ -24,9 +24,7 @@ export class ScormService {
 
  initCourse(){
    console.log('initcourse');
-  //  document.getElementById("learnername").innerHTML = learnername; 
-  //  console.log('learnername',learnername);
-  //  return learnername;
+  
    
      //scorm.init returns a boolean
      this.lmsConnected = SCORM.init();
